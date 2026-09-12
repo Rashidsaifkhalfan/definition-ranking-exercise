@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+  <meta charset="UTF-8">
+  <title>تمرين ترتيب التعريفات</title>
+  <style>
+    body { font-family: "Tahoma", sans-serif; direction: rtl; margin: 30px; }
+    .definition { margin: 10px 0; }
+    .result { margin-top: 20px; font-weight: bold; }
+    select { margin-left: 10px; }
+  </style>
+</head>
+<body>
+  <h2>رتب التعريفات التالية من الأدق إلى الأقل دقة:</h2>
+
+  <div class="definition">
+    التعريف (أ): "العمل التعاوني هو جلوس الطلاب في مجموعات متقاربة لإنجاز نفس المهمة..."
+    <select id="defA">
+      <option value="">اختر الترتيب</option>
+      <option value="1">الأول (الأدق)</option>
+      <option value="2">الثاني</option>
+      <option value="3">الثالث</option>
+      <option value="4">الرابع (الأقل دقة)</option>
+    </select>
+  </div>
+
+  <div class="definition">
+    التعريف (ب): "العمل المستقل هو استراتيجية لتوحيد أفكار الطلاب بالقوة..."
+    <select id="defB">
+      <option value="">اختر الترتيب</option>
+      <option value="1">الأول (الأدق)</option>
+      <option value="2">الثاني</option>
+      <option value="3">الثالث</option>
+      <option value="4">الرابع (الأقل دقة)</option>
+    </select>
+  </div>
+
+  <div class="definition">
+    التعريف (ج): "العمل التعاوني هو اعتماد متبادل إيجابي وتوزيع أدوار..."
+    <select id="defC">
+      <option value="">اختر الترتيب</option>
+      <option value="1">الأول (الأدق)</option>
+      <option value="2">الثاني</option>
+      <option value="3">الثالث</option>
+      <option value="4">الرابع (الأقل دقة)</option>
+    </select>
+  </div>
+
+  <div class="definition">
+    التعريف (د): "العمل التعاوني والعمل المستقل مفهومان متضادان تماماً..."
+    <select id="defD">
+      <option value="">اختر الترتيب</option>
+      <option value="1">الأول (الأدق)</option>
+      <option value="2">الثاني</option>
+      <option value="3">الثالث</option>
+      <option value="4">الرابع (الأقل دقة)</option>
+    </select>
+  </div>
+
+  <button onclick="checkAnswers()">تحقق من الإجابة</button>
+  <div class="result" id="result"></div>
+
+  <script>
+    function checkAnswers() {
+      // الترتيب الصحيح: ج (1) → أ (2) → د (3) → ب (4)
+      const correct = { defC: "1", defA: "2", defD: "3", defB: "4" };
+
+      let score = 0;
+      for (let key in correct) {
+        const selected = document.getElementById(key).value;
+        if (selected === correct[key]) score++;
+      }
+
+      const resultDiv = document.getElementById("result");
+      if (score === 4) {
+        resultDiv.textContent = "إجابتك صحيحة بالكامل 🎉";
+        resultDiv.style.color = "green";
+      } else {
+        resultDiv.textContent = "هناك أخطاء، حاول مرة أخرى ❌";
+        resultDiv.style.color = "red";
+      }
+    }
+  </script>
+</body>
+</html>
